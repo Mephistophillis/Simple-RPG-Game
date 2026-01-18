@@ -1,0 +1,49 @@
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class VFX_AutoController : MonoBehaviour
+{
+    [SerializeField] private bool autoDestroy = true;
+    [SerializeField] private float destroyDelay = 1;
+    [Space]
+    [SerializeField] private bool ramdomOffset = true;
+    [SerializeField] private bool randomRotation = true;
+
+    [Header("Random rotation")]
+    [SerializeField] private float minRotation = 0;
+    [SerializeField] private float maxRotation = 360;
+
+    [Header("Random position")]
+    [SerializeField] private float xMinOffset = -.3f;
+    [SerializeField] private float xMaxOffset = .3f;
+    [Space]
+    [SerializeField] private float yMinOffset = -.3f;
+    [SerializeField] private float yMaxOffset = .3f;
+
+    private void Start()
+    {
+        ApplyRamdomOffset();
+        ApplyRandomRotation();
+
+        if (autoDestroy)
+            Destroy(gameObject, destroyDelay);
+    }
+
+    private void ApplyRamdomOffset()
+    {
+        if (!ramdomOffset) return;
+
+        float xOffset = Random.Range(xMinOffset, xMaxOffset);
+        float yOffset = Random.Range(yMinOffset, yMaxOffset);
+
+        transform.position = transform.position + new Vector3(xOffset, yOffset);
+    }
+
+    private void ApplyRandomRotation()
+    {
+        if (!randomRotation) return;
+
+        float zRotation = Random.Range(minRotation, maxRotation);
+        transform.Rotate(0, 0, zRotation);
+    }
+}
