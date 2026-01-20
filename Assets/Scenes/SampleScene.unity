@@ -34305,6 +34305,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea09ce0cd2cd1642ac9bbde25993f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
+  skillIcon: {fileID: 1615136687}
+  lockedColorHex: '#676767'
+  isUnlocked: 0
+  isLocked: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
