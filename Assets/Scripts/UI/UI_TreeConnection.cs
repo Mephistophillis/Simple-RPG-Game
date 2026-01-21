@@ -35,12 +35,12 @@ public class UI_TreeConnection : MonoBehaviour
     {
         switch (type)
         {
-            case NodeDirectionType.UpLeft: return 145f;
+            case NodeDirectionType.UpLeft: return 135f;
             case NodeDirectionType.Up: return 90f;
             case NodeDirectionType.UpRight: return 45f;
             case NodeDirectionType.Left: return 180f;
             case NodeDirectionType.Right: return 0f;
-            case NodeDirectionType.DownLeft: return -145f;
+            case NodeDirectionType.DownLeft: return -135f;
             case NodeDirectionType.Down: return -90f;
             case NodeDirectionType.DownRight: return -45f;
             default: return 0f;
