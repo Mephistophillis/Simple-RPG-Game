@@ -1,10 +1,13 @@
+using System.Collections;
 using System.Text;
 using TMPro;
 using UnityEngine;
 
 public class UI_SkillTooltip : UI_ToolTip
 {
+    private UI ui;
     private UI_SkillTree skillTree;
+
     [SerializeField] private TextMeshProUGUI skillName;
     [SerializeField] private TextMeshProUGUI skillDesction;
     [SerializeField] private TextMeshProUGUI skillRequirements;
@@ -16,10 +19,13 @@ public class UI_SkillTooltip : UI_ToolTip
     [SerializeField] private Color exampleColor;
     [SerializeField] private string lockedSkillText = "Вы избрали другой путь - Теперь этот навык недоступен";
 
+    private Coroutine textEffectCo;
+
     protected override void Awake()
     {
         base.Awake();
-        skillTree = GetComponentInParent<UI_SkillTree>();
+        ui = GetComponentInParent<UI>();
+        skillTree = ui.GetComponentInChildren<UI_SkillTree>();
     }
 
     public override void ShowToolTip(bool show, RectTransform targetRect)
@@ -47,6 +53,29 @@ public class UI_SkillTooltip : UI_ToolTip
             : GetRequirements(node.skillData.cost, node.neededNodes, node.conflictNodes);
 
         skillRequirements.text = requirements;
+    }
+
+    public void LockedSkillEffect()
+    {
+        if (textEffectCo != null)
+            StopCoroutine(textEffectCo);
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, .15f, 3));
+    }
+
+    private IEnumerator TextBlinkEffectCo(
+        TextMeshProUGUI text,
+        float blinkInterval,
+        int blinkCount
+        )
+    {
+        for (int i = 0; i < blinkCount; i++)
+        {
+            text.text = GetColoredText(notMetConditionHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+
+            text.text = GetColoredText(importantInfoHex, lockedSkillText);
+            yield return new WaitForSeconds(blinkInterval);
+        }
     }
 
     private string GetRequirements(
@@ -87,4 +116,10 @@ public class UI_SkillTooltip : UI_ToolTip
 
         return sb.ToString();
     }
+
+    private string GetColoredText(string color, string text)
+    {
+        return $"<color={color}>{text}</color>";
+    }
+
 }
