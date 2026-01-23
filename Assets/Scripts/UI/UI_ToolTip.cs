@@ -45,4 +45,11 @@ public class UI_ToolTip : MonoBehaviour
 
         rect.position = targetPosition;
     }
+
+
+    protected string GetColoredText(string color, string text)
+    {
+        return $"<color={color}>{text}</color>";
+    }
+
 }

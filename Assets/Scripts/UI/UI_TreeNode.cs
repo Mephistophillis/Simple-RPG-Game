@@ -103,22 +103,24 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillToolTip.ShowToolTip(true, rect, this);
 
-        if (isUnlocked || isLocked) return;
+        if (!isUnlocked || !isLocked)
+            ToggleNodeHightlight(true);
+    }
 
-        Color color = Color.white * .9f;
-        color.a = 1;
+    private void ToggleNodeHightlight(bool higlight)
+    {
+        Color hightlihtColor = Color.white * .9f; hightlihtColor.a = 1;
+        Color colorToApply = higlight ? hightlihtColor : lastColor;
 
-        UpdateIconColor(color);
-
+        UpdateIconColor(colorToApply);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.ShowToolTip(false, rect);
 
-        if (isUnlocked || isLocked) return;
-
-        UpdateIconColor(lastColor);
+        if (!isUnlocked || !isLocked)
+            ToggleNodeHightlight(false);
     }
 
     private Color GetColorByHex(string hexNumber)
@@ -127,6 +129,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         return color;
     }
+
+    private void OnDisable()
+    {
+        if (isLocked)
+            UpdateIconColor(GetColorByHex(lockedColorHex));
+
+        if (isUnlocked)
+            UpdateIconColor(Color.white);
+    }
+
     private void OnValidate()
     {
         if (skillData == null) return;
