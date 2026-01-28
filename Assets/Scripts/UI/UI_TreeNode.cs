@@ -54,8 +54,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         skillTree.RemoveSkillPoints(skillData.cost);
         connectHandler.UnlockConnectionImage(true);
 
-        // Find Player_SkillManager
-        // Unlock skill on skill manager
+        skillTree.skillManager
+            .GetSkillByType(skillData.skillType)
+            .SetSkillUpgrade(skillData.upgradeType);
     }
 
     private bool CanBeUlocked()
@@ -104,7 +105,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ui.skillToolTip.ShowToolTip(true, rect, this);
 
         if (!isUnlocked || !isLocked)
-            ToggleNodeHightlight(true);
+            return;
+
+        ToggleNodeHightlight(true);
     }
 
     private void ToggleNodeHightlight(bool higlight)
@@ -120,7 +123,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ui.skillToolTip.ShowToolTip(false, rect);
 
         if (!isUnlocked || !isLocked)
-            ToggleNodeHightlight(false);
+            return;
+
+        ToggleNodeHightlight(false);
     }
 
     private Color GetColorByHex(string hexNumber)
