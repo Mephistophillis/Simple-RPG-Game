@@ -56,7 +56,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         skillTree.skillManager
             .GetSkillByType(skillData.skillType)
-            .SetSkillUpgrade(skillData.upgradeType);
+            .SetSkillUpgrade(skillData.upgradeData);
     }
 
     private bool CanBeUlocked()

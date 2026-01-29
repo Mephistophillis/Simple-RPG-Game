@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
   cost: 2
   skillType: 0
-  upgradeType: 3
+  upgradeData:
+    upgradeType: 3
+    cooldown: 3
   displayName: "\u0417\u0430\u0431\u044B\u0442\u044B\u0439 \u043E\u0441\u043A\u043E\u043B\u043E\u043A"
   description: "\u041F\u043E\u0441\u043B\u0435 \u0440\u044B\u0432\u043A\u0430 \u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
     \u041E\u0441\u043A\u043E\u043B\u043E\u043A \u0432\u0440\u0435\u043C\u0435\u043D\u0438\n(\u041D\u0430\u0441\u043B\u0435\u0434\u0443\u0435\u0442
