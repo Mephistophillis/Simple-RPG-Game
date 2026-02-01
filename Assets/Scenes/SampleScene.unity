@@ -223,6 +223,71 @@ MonoBehaviour:
   rotationPoint: {fileID: 46610386}
   connecionLength: {fileID: 804465072}
   childNodeConnectionPoint: {fileID: 96215529}
+--- !u!1001 &70507660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2816042750483933272, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_Name
+      value: Enemy_Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4596121
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6557026
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
 --- !u!1 &96215528
 GameObject:
   m_ObjectHideFlags: 0
@@ -39674,6 +39739,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1653387246}
   - component: {fileID: 1653387247}
+  - component: {fileID: 1653387249}
+  - component: {fileID: 1653387248}
   m_Layer: 7
   m_Name: Skills_Holder
   m_TagString: Untagged
@@ -39711,6 +39778,45 @@ MonoBehaviour:
   skillType: 0
   upgradeType: 0
   cooldown: 3
+--- !u!95 &1653387248
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653387245}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9014bd6f305156b4fb3e0c8a4ae7bb48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1653387249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653387245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa7157bcf5916f43995b947b96ddc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_Shard
+  skillType: 0
+  upgradeType: 0
+  cooldown: 1
+  shardPrefab: {fileID: 7376087663449727923, guid: 5fbdd6da99364714a8ad277224d75d27, type: 3}
+  detonateTime: 3
 --- !u!1 &1657345421
 GameObject:
   m_ObjectHideFlags: 0
@@ -41405,3 +41511,4 @@ SceneRoots:
   - {fileID: 516783671}
   - {fileID: 1457644251}
   - {fileID: 158036588}
+  - {fileID: 70507660}

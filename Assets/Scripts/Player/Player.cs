@@ -146,6 +146,8 @@ public class Player : Entity
 
         input.Player.ToggleSkillTreeUI.performed += ctx =>
             ui.ToggleSkillTreeUI();
+
+        input.Player.Spell.performed += ctx => skillManager.shard.CreateShard();
     }
 
     private void OnDisable()
