@@ -59,3 +59,17 @@ mono_crash.*
 # Rider
 .idea/
 *.sln.iml
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Unity UserSettings (editor preferences, layouts)
+UserSettings/
+
+# Unity recovery files
+Assets/_Recovery/
+Assets/_Recovery.meta
+
+# Temporary or auto-generated assets
+Assets/Graphics/MagicalEffects/
+Assets/Graphics/MagicalEffects.meta
