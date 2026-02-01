@@ -73,3 +73,6 @@ Assets/_Recovery.meta
 # Temporary or auto-generated assets
 Assets/Graphics/MagicalEffects/
 Assets/Graphics/MagicalEffects.meta
+
+# TextMesh Pro auto-generated fallback assets
+Assets/TextMesh?Pro/Resources/Fonts?&?Materials/*Fallback.asset
