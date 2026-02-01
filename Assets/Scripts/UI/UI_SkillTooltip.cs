@@ -98,6 +98,8 @@ public class UI_SkillTooltip : UI_ToolTip
 
         foreach (var node in neededNodes)
         {
+            if (node == null) continue;
+
             string nodeColor = node.isUnlocked
                 ? metConditionHex
                 : notMetConditionHex;
@@ -114,7 +116,9 @@ public class UI_SkillTooltip : UI_ToolTip
 
         foreach (var node in conflictNodes)
         {
-            string nodeText = $"<color={importantInfoHex}>- {node.skillData.displayName} </color>";
+            if (node == null) continue;
+
+            string nodeText = $"- {node.skillData.displayName}";
             sb.AppendLine(GetColoredText(importantInfoHex, nodeText));
         }
 
