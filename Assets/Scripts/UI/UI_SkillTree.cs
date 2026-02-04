@@ -37,7 +37,7 @@ public class UI_SkillTree : MonoBehaviour
     {
         foreach (var node in parentNodes)
         {
-            node.UpdateAllConnections();
+            node?.UpdateAllConnections();
         }
     }
 }
