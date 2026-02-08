@@ -70,6 +70,18 @@ public class Skill_Shard : Skill_Base
             currentShard.OnExplode += ForceCooldown;
     }
 
+    public void CreateRawShard()
+    {
+        bool canMove = Unlocked(SkillUpgradeType.Shard_MoveToEnemy) || Unlocked(SkillUpgradeType.Shard_Multicast);
+
+        GameObject shard = Instantiate(shardPrefab, transform.position, Quaternion.identity);
+
+        shard
+            .GetComponent<SkillObject_Shard>()
+            .SetupShard(this, detonateTime, canMove, shardSpeed);
+
+    }
+
     private void HandleShardRegular()
     {
         CreateShard();
