@@ -200,10 +200,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2079847091}
+  - {fileID: 544922239}
+  - {fileID: 611765931}
   - {fileID: 1376153065}
   - {fileID: 1130655246}
-  - {fileID: 611765931}
-  - {fileID: 544922239}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3141,7 +3141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 407.63928, y: -39.860703}
+  m_AnchoredPosition: {x: 407.63928, y: -36.860703}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &544922240
@@ -3507,7 +3507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 678.46106, y: -35.961227}
+  m_AnchoredPosition: {x: 678.46106, y: -29.961231}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611765932
@@ -5517,7 +5517,7 @@ MonoBehaviour:
   parentNodes:
   - {fileID: 2130396895}
   - {fileID: 864134864}
-  - {fileID: 0}
+  - {fileID: 2079847092}
 --- !u!1 &858601554
 GameObject:
   m_ObjectHideFlags: 0
@@ -13570,6 +13570,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9d933b07d376a4aabe7e2ec1eaa3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
+  basicAttackScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultipier: 0.2
+    burnDuration: 0
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 2055541950}
   targetCheckRadius: 1
   whatIsTarget:
@@ -43642,10 +43652,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 864134863}
+  - {fileID: 1277232864}
   - {fileID: 1521934221}
   - {fileID: 1244440077}
   - {fileID: 1657345422}
-  - {fileID: 1277232864}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -43682,10 +43692,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2130396893}
-  - {fileID: 1244071268}
-  - {fileID: 1408881090}
   - {fileID: 938019163}
   - {fileID: 1224968749}
+  - {fileID: 1244071268}
+  - {fileID: 1408881090}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
