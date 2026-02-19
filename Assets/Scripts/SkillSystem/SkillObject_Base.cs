@@ -19,10 +19,12 @@ public class SkillObject_Base : MonoBehaviour
             if (damagable == null)
                 continue;
 
-            ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
+            AttackData attackData = playerStats.GetAttackData(damageScaleData);
+            Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
 
-            float physicalDamage = playerStats.GetPhysicalDamage(out bool isCrit, damageScaleData.physical);
-            float elementalDamage = playerStats.GetElementalDamage(out ElementType element, damageScaleData.elemental);
+            float physicalDamage = attackData.physicalDamage;
+            float elementalDamage = attackData.elementalDamage;
+            ElementType element = attackData.element;
 
             damagable.TakeDamage(
                 physicalDamage,
@@ -32,12 +34,9 @@ public class SkillObject_Base : MonoBehaviour
             );
 
             if (element != ElementType.None)
-                target
-                    .GetComponent<Entity_StatusHandler>()
-                    .ApplyStatusEffect(element, effectData);
+                statusHandler.ApplyStatusEffect(element, attackData.effectData);
 
             usedElement = element;
-
         }
     }
 

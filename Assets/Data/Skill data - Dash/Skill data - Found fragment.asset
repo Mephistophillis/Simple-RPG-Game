@@ -13,10 +13,21 @@ MonoBehaviour:
   m_Name: Skill data - Found fragment
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
   cost: 3
+  unlockedByDefault: 0
   skillType: 0
   upgradeData:
-    upgradeType: 4
+    upgradeType: 5
     cooldown: 3
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultipier: 0.2
+      burnDuration: 0
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
   displayName: "\u041F\u043E\u0442\u0435\u0440\u044F\u043D\u043D\u044B\u0439 \u043E\u0441\u043A\u043E\u043B\u043E\u043A"
   description: "\u041F\u043E\u0441\u043B\u0435 \u0440\u044B\u0432\u043A\u0430 \u0432
     \u0442\u043E\u0447\u043A\u0435 \u043F\u0440\u0438\u0431\u044B\u0442\u0438\u044F
