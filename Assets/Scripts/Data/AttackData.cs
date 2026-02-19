@@ -1,16 +1,21 @@
-using UnityEngine;
+using System;
 
-public class AttackData : MonoBehaviour
+[Serializable]
+public class AttackData
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float physicalDamage;
+    public float elementalDamage;
+    public bool isCrit;
+    public ElementType element;
 
-    // Update is called once per frame
-    void Update()
+    public ElementalEffectData effectData;
+
+
+    public AttackData(Entity_Stats entityStats, DamageScaleData scaleData)
     {
-        
+        physicalDamage = entityStats.GetPhysicalDamage(out isCrit, scaleData.physical);
+        elementalDamage = entityStats.GetElementalDamage(out element, scaleData.elemental);
+
+        effectData = new ElementalEffectData(entityStats, scaleData);
     }
 }
