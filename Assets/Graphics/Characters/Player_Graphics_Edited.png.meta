@@ -2199,10 +2199,10 @@ TextureImporter:
       name: Player_Graphics_79
       rect:
         serializedVersion: 2
-        x: 69
-        y: 132
-        width: 69
-        height: 44
+        x: 77
+        y: 140
+        width: 20
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

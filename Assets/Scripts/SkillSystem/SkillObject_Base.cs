@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SkillObject_Base : MonoBehaviour
 {
+    [SerializeField] private GameObject onHitVfx;
+    [Space]
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected Transform targetCheck;
     [SerializeField] protected float checkRadius;
@@ -9,6 +11,7 @@ public class SkillObject_Base : MonoBehaviour
     protected Entity_Stats playerStats;
     protected DamageScaleData damageScaleData;
     protected ElementType usedElement;
+    protected bool targetGotHit;
 
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
@@ -26,7 +29,7 @@ public class SkillObject_Base : MonoBehaviour
             float elementalDamage = attackData.elementalDamage;
             ElementType element = attackData.element;
 
-            damagable.TakeDamage(
+            targetGotHit = damagable.TakeDamage(
                 physicalDamage,
                 elementalDamage,
                 element,
@@ -35,6 +38,9 @@ public class SkillObject_Base : MonoBehaviour
 
             if (element != ElementType.None)
                 statusHandler.ApplyStatusEffect(element, attackData.effectData);
+
+            if (targetGotHit)
+                Instantiate(onHitVfx, target.transform.position, Quaternion.identity);
 
             usedElement = element;
         }
