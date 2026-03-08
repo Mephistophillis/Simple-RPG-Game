@@ -252,8 +252,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2079847091}
-  - {fileID: 544922239}
   - {fileID: 611765931}
+  - {fileID: 544922239}
   - {fileID: 1376153065}
   - {fileID: 1130655246}
   m_Father: {fileID: 857559375}
@@ -329,11 +329,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.68
+      value: -19.71
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -373,6 +373,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091418215022047686, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2205,11 +2209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.36
+      value: -23.69
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.29
+      value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2249,6 +2253,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091418215022047686, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12841,7 +12849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -725760720, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  m_Sprite: {fileID: -1466638061, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -45242,16 +45250,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_SwordThrow
   skillType: 3
-  upgradeType: 12
+  upgradeType: 14
   cooldown: 0
   swordPrefab: {fileID: 204017685261379595, guid: 84926f4ef2c26f343a4bd1e8936f6c82, type: 3}
-  throwPower: 2.5
+  regularThrowPower: 2.83
   pierceSwordPrefab: {fileID: 692004054435920869, guid: 5481aa70091aef24db3e3ce077a851e7, type: 3}
   pierceAmount: 2
+  pierceThrowPower: 6.05
   spinSwordPrefab: {fileID: 8515896141503685353, guid: 467c31f7ae622c345b9273cb3bf72bc1, type: 3}
   maxDistance: 5
   attackPerSecond: 6
   maxSpinDuration: 3
+  spinThrowPower: 4.09
+  bounceSwordPrefab: {fileID: 644746965463905, guid: 8a017f861406cb641b211cbf90c83359, type: 3}
+  bounceCount: 5
+  bounceSpeed: 12
+  bounceThrowPower: 4.51
   predictionDot: {fileID: 3454551016972657261, guid: 71a4e181a74079f48b930ff9900c5d46, type: 3}
   numberOfDots: 20
   spaceBeetweenDots: 0.05
@@ -45959,10 +45973,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 864134863}
-  - {fileID: 1277232864}
-  - {fileID: 1657345422}
   - {fileID: 1521934221}
   - {fileID: 1244440077}
+  - {fileID: 1657345422}
+  - {fileID: 1277232864}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -47162,8 +47176,7 @@ GameObject:
   - component: {fileID: 1989933286}
   - component: {fileID: 1989933285}
   m_Layer: 5
-  m_Name: "UI_TreeNode - \u041E\u0442\u0440\u0430\u0436\u0435\u043D\u043D\u044B\u0439
-    \u043E\u0441\u043A\u043E\u043B\u043E\u043A"
+  m_Name: "UI_TreeNode - \u0420\u0435\u043A\u043E\u0448\u0435\u0442"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47227,11 +47240,11 @@ MonoBehaviour:
   - {fileID: 880708592}
   isUnlocked: 0
   isLocked: 0
-  skillName: "\u041E\u0442\u0440\u0430\u0436\u0435\u043D\u043D\u044B\u0439 \u043E\u0441\u043A\u043E\u043B\u043E\u043A"
+  skillName: "\u0420\u0435\u043A\u043E\u0448\u0435\u0442"
   skillIcon: {fileID: 1040496358}
-  skillData: {fileID: 11400000, guid: 131ecf986a9e2944784ef8d12e6d72e1, type: 2}
+  skillData: {fileID: 11400000, guid: 6cfd1b737550ba94ab3dd4021186383b, type: 2}
   lockedColorHex: '#676767'
-  skillCost: 3
+  skillCost: 2
 --- !u!1 &1999524690
 GameObject:
   m_ObjectHideFlags: 0
