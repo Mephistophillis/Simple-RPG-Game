@@ -10,26 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 742253c2fe732014185d80e4a1040380, type: 3}
-  m_Name: Skill data - Time echo
+  m_Name: Skill data - Endless possibillity
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  displayName: "\u042D\u0445\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
-  description: "\u0421\u043E\u0437\u0434\u0430\u0439\u0442\u0435 \u044D\u0445\u043E
-    \u0432\u0440\u0435\u043C\u0435\u043D\u0438 (\u043A\u043B\u043E\u043D\u0430) \u0441\u0435\u0431\u044F,
-    \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043E\u0442\u0432\u043B\u0435\u043A\u0430\u0435\u0442
-    \u0432\u0440\u0430\u0433\u043E\u0432"
-  icon: {fileID: -167338002, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
-  cost: 1
+  displayName: "\u041A\u043B\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435"
+  description: "\u041F\u0440\u0438 \u0430\u0442\u0430\u043A\u0435 \u043A\u043B\u043E\u043D\u0430
+    \u0435\u0441\u0442\u044C 30% \u0448\u0430\u043D\u0441, \u0447\u0442\u043E \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F
+    \u0435\u0449\u0435 \u043E\u0434\u0438\u043D \u043A\u043B\u043E\u043D"
+  icon: {fileID: 29872933, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  cost: 2
   unlockedByDefault: 0
-  skillType: 1
+  skillType: 0
   upgradeData:
-    upgradeType: 15
+    upgradeType: 0
     cooldown: 0
     damageScaleData:
       physical: 1
       elemental: 1
       chillDuration: 3
       chillSlowMultipier: 0.2
-      burnDuration: 0
+      burnDuration: 3
       burnDamageScale: 1
       shockDuration: 3
       shockDamageScale: 1
