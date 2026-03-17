@@ -60,7 +60,7 @@ public class Player : Entity
         ui = FindAnyObjectByType<UI>();
         vfx = GetComponent<Player_VFX>();
         input = new PlayerInputSet();
-        health = GetComponent<Enemy_Health>();
+        health = GetComponent<Entity_Health>();
         skillManager = GetComponent<Player_SkillManager>();
         statusHandler = GetComponent<Entity_StatusHandler>();
 

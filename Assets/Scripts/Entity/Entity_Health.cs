@@ -15,6 +15,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     [Header("Health regen")]
     [SerializeField] private float regenInterval = 1;
     [SerializeField] private bool canRegenerateHalth = true;
+    public float lastDamageTaken { get; private set; }
 
 
     [Header("On Damage Knockback")]
@@ -69,6 +70,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         TakeKnockback(damageDealer, physicalDamageTaken);
         ReduceHealth(physicalDamageTaken + elementalDamageTaken);
+
+        lastDamageTaken = physicalDamageTaken + elementalDamageTaken;
 
         return true;
     }

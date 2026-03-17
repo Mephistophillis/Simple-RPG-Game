@@ -1860,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2816042750483933272, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391359191812079442, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1904,10 +1904,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6523740856972021523, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832138138236458639, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8832138138236458639, guid: ee2413b22222d4e438ce29d9de31443d, type: 3}
+      propertyPath: offense.attackSpeed.baseValue
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7274,7 +7282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &857559375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46421,12 +46429,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_TimeEcho
   skillType: 1
-  upgradeType: 0
+  upgradeType: 19
   cooldown: 0
   timeEchoPrefab: {fileID: 1568072180927169196, guid: b9ff4f986c86e4a49bd07e522ae2568a, type: 3}
   timeEchoDuration: 3
   maxAttacks: 3
   duplicateChance: 1
+  damagePercentHealed: 0.3
+  cooldownReducedInSeconds: 0
 --- !u!1 &1657345421
 GameObject:
   m_ObjectHideFlags: 0

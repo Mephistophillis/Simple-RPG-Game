@@ -7,12 +7,24 @@ public class Player_SkillManager : MonoBehaviour
     public Skill_SwordThrow swordThrow { get; private set; }
     public Skill_TimeEcho timeEcho { get; private set; }
 
+    private Skill_Base[] allSkills;
+
     private void Awake()
     {
         dash = GetComponentInChildren<Skill_Dash>();
         shard = GetComponentInChildren<Skill_Shard>();
         swordThrow = GetComponentInChildren<Skill_SwordThrow>();
         timeEcho = GetComponentInChildren<Skill_TimeEcho>();
+
+        allSkills = GetComponentsInChildren<Skill_Base>();
+    }
+
+    public void ReduceAllCooldownsBy(float amount)
+    {
+        foreach (Skill_Base skill in allSkills)
+        {
+            skill.ReduceCooldownBy(amount);
+        }
     }
 
     public Skill_Base GetSkillByType(SkillType type)
