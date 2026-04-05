@@ -49,10 +49,15 @@ public class Entity : MonoBehaviour
         stateMachine.currentState.Update();
     }
 
-    public virtual void SlowDownEntity(float duration, float slowMultipier)
+    public virtual void SlowDownEntity(float duration, float slowMultipier, bool canOverrideSlowEffect = false)
     {
         if (slowDownCo != null)
+        {
+          if (canOverrideSlowEffect)
             StopCoroutine(slowDownCo);
+          else
+            return;
+        }
 
         slowDownCo = StartCoroutine(SlowDownEntityCo(duration, slowMultipier));
     }
@@ -60,6 +65,11 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator SlowDownEntityCo(float duration, float slowMultiptier)
     {
         yield return null;
+    }
+
+    public virtual void StopSlowDown()
+    {
+      slowDownCo = null;
     }
 
     public virtual void EntityDeath()

@@ -4078,7 +4078,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.243694, y: -0.5407404, z: 1.7646961}
+  m_LocalPosition: {x: -20.553696, y: 1.6192595, z: 1.7646961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13726,7 +13726,7 @@ Transform:
   m_GameObject: {fileID: 1055315854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.243694, y: -0.5407404, z: 1.7646961}
+  m_LocalPosition: {x: -20.553696, y: 1.6192595, z: 1.7646961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16518,6 +16518,8 @@ MonoBehaviour:
   jumpAttackVelocity: {x: 5, y: -6}
   attackVelocityDuration: 0.1
   comboResetTime: 1
+  riseSpeed: 25
+  riseMaxDistance: 3
   moveSpeed: 8
   jumpForce: 12
   wallJumpForce: {x: 6, y: 12}
@@ -16534,7 +16536,7 @@ Transform:
   m_GameObject: {fileID: 1343268590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.62, y: -2.34, z: -1}
+  m_LocalPosition: {x: -20.93, y: -0.18, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16699,7 +16701,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     iceDamage:
-      baseValue: 0
+      baseValue: 10
       modifiers: []
     lightningDamage:
       baseValue: 0
@@ -46324,6 +46326,7 @@ GameObject:
   - component: {fileID: 1653387249}
   - component: {fileID: 1653387250}
   - component: {fileID: 1653387251}
+  - component: {fileID: 1653387252}
   m_Layer: 7
   m_Name: Skills_Holder
   m_TagString: Untagged
@@ -46437,6 +46440,28 @@ MonoBehaviour:
   duplicateChance: 1
   damagePercentHealed: 0.3
   cooldownReducedInSeconds: 0
+--- !u!114 &1653387252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653387245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cdd14908cce5245908e9e7fb00a218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_DomainExpansion
+  skillType: 4
+  upgradeType: 22
+  cooldown: 0
+  domainPrefab: {fileID: 8149104544928271111, guid: d2b0049a9b203ef45b2d7ed2d0d96c9a, type: 3}
+  slowDownPercent: 0.9
+  slowDownDomainDuration: 10
+  spellCastingDomainSlowDown: 1
+  spellCastingDomainDuration: 8
+  maxDomainSize: 15
+  expandSpeed: 3
 --- !u!1 &1657345421
 GameObject:
   m_ObjectHideFlags: 0
