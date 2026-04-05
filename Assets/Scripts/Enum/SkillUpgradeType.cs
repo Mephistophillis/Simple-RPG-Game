@@ -33,4 +33,9 @@ public enum SkillUpgradeType
                        // Heal is = to percentage of damage taken when died
     TimeEcho_CleanseWisp, // Wisp will now remove negative effects from player
     TimeEcho_CooldownWisp, // Wisp will reduce cooldown of all skills by N seconds
+
+    // --- Domain Expantion ---
+    Domain_SlowingDown, // Create an area in which slow down enemies by 90%. You can freely move and fight.
+    Domain_EchoSpam, // You can no longer move, but you spam emeny with Time Echo ability.
+    Domain_ShardSpam, // You can no longer move, but you spam emeny with Time Shard ability.
 }
