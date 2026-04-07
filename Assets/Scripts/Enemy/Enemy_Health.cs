@@ -1,5 +1,3 @@
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy_Health : Entity_Health
@@ -8,6 +6,8 @@ public class Enemy_Health : Entity_Health
 
     override public bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
     {
+        if (!canTakeDamage) return false;
+
         bool wasHit = base.TakeDamage(damage, elementalDamage, element, damageDealer);
 
         if (!wasHit) return false;

@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +9,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity_Stats entityStats;
 
     [SerializeField] public float currentHealth;
-    [SerializeField] protected bool isDead = false;
+    public bool isDead { get; private set; }
+    protected bool canTakeDamage = true;
 
     [Header("Health regen")]
     [SerializeField] private float regenInterval = 1;
@@ -50,7 +50,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     public virtual bool TakeDamage(float damage, float elementalDamage, ElementType element, Transform damageDealer)
     {
-        if (isDead) return false;
+        if (isDead || !canTakeDamage) return false;
 
         if (AttackEvaded())
         {
@@ -75,6 +75,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         return true;
     }
+
+    public void SetCanTakeDamage(bool canTakeDamage) => this.canTakeDamage = canTakeDamage;
 
     private bool AttackEvaded()
     {
