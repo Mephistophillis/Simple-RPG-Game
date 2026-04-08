@@ -6,6 +6,14 @@ public class Object_ItemPickup : MonoBehaviour
   private SpriteRenderer sr;
   [SerializeField] private ItemDataSO itemData;
 
+  private Inventory_Item itemToAdd;
+  private Inventory_Base inventory;
+
+  private void Awake()
+  {
+    itemToAdd = new Inventory_Item(itemData);
+  }
+
   private void OnValidate()
   {
     if (itemData == null) return;
@@ -15,9 +23,15 @@ public class Object_ItemPickup : MonoBehaviour
     gameObject.name = "Object_ItemPickup - " + itemData.itemName;
   }
 
-  private void OnTriggerEnter2D()
+  private void OnTriggerEnter2D(Collider2D collision)
   {
-    Debug.Log("Item picked up - " + itemData.itemName);
-    Destroy(gameObject);
+    inventory = collision.GetComponent<Inventory_Base>();
+    if (inventory == null) return;
+
+    if (inventory.CanAddItem())
+    {
+      inventory.AddItem(itemToAdd);
+      Destroy(gameObject);
+    }
   }
 }
