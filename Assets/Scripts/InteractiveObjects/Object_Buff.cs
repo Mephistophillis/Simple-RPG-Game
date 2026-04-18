@@ -66,7 +66,7 @@ public class Object_Buff : MonoBehaviour
             if (apply)
                 statsToModify.GetStatByType(buff.type).AddModifier(buff.value, buffName);
             else
-                statsToModify.GetStatByType(buff.type).RemoceModifier(buffName);
+                statsToModify.GetStatByType(buff.type).RemoveModifier(buffName);
         }
     }
 }

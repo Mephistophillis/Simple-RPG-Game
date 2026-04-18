@@ -31,7 +31,7 @@ public class Stat
         needToCalculate = true;
     }
 
-    public void RemoceModifier(string source)
+    public void RemoveModifier(string source)
     {
         modifiers.RemoveAll(modifier => modifier.source == source);
         needToCalculate = true;
