@@ -21,4 +21,5 @@ public enum StatType
     IceResistance,
     FireResistance,
     LightningResistance,
+    ElementalDamage,
 }

@@ -23,9 +23,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
   public virtual void OnPointerDown(PointerEventData eventData)
   {
-    bool isMaterial = itemInSlot.itemData.itemType == ItemType.Material;
-
-    if (itemInSlot == null || isMaterial) return;
+    if (itemInSlot == null || itemInSlot.itemData.itemType == ItemType.Material) return;
 
     inventory.TryEquipItem(itemInSlot);
 
