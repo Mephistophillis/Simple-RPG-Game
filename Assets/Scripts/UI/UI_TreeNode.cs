@@ -41,6 +41,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Refund()
     {
+        if (!isUnlocked || skillData.unlockedByDefault) return;
+
         isUnlocked = false;
         isLocked = false;
         UpdateIconColor(GetColorByHex(lockedColorHex));
@@ -61,8 +63,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         connectHandler.UnlockConnectionImage(true);
 
         skillTree.skillManager
-            .GetSkillByType(skillData.skillType)
-            .SetSkillUpgrade(skillData.upgradeData);
+          .GetSkillByType(skillData.skillType)
+          .SetSkillUpgrade(skillData.upgradeData);
     }
 
     private bool CanBeUlocked()

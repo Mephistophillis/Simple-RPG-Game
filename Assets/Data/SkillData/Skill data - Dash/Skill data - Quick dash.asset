@@ -12,13 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 742253c2fe732014185d80e4a1040380, type: 3}
   m_Name: Skill data - Quick dash
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  cost: 0
-  skillType: 0
-  upgradeData:
-    upgradeType: 0
-    cooldown: 3
   displayName: "\u0420\u044B\u0432\u043E\u043A"
   description: "\u0420\u044B\u0432\u043E\u043A \u0434\u043B\u044F \u0443\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F
     \u043E\u0442 \u0430\u0442\u0430\u043A.\n(\u0412\u044B \u043D\u0435\u0443\u044F\u0437\u0432\u0438\u043C\u044B
     \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0440\u044B\u0432\u043A\u0430)"
   icon: {fileID: -968460737, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  cost: 0
+  unlockedByDefault: 1
+  skillType: 0
+  upgradeData:
+    upgradeType: 1
+    cooldown: 3
+    damageScaleData:
+      physical: 1
+      elemental: 1
+      chillDuration: 3
+      chillSlowMultipier: 0.2
+      burnDuration: 0
+      burnDamageScale: 1
+      shockDuration: 3
+      shockDamageScale: 1
+      shockCharge: 0.4
