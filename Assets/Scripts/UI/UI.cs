@@ -4,6 +4,7 @@ public class UI : MonoBehaviour
 {
     public UI_SkillTooltip skillToolTip;
     public UI_ItemToolTip itemToolTip;
+    public UI_StatToolTip statToolTip;
 
     public UI_SkillTree skillTree;
     private bool skillTreeEnabled;
@@ -12,6 +13,7 @@ public class UI : MonoBehaviour
     {
         skillToolTip = GetComponentInChildren<UI_SkillTooltip>();
         itemToolTip = GetComponentInChildren<UI_ItemToolTip>();
+        statToolTip = GetComponentInChildren<UI_StatToolTip>();
         skillTree = GetComponentInChildren<UI_SkillTree>(true);
     }
 
