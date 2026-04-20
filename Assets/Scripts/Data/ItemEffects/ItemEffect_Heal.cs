@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item Effect/Heal effect", fileName = "Item effect data - heal")]
+[CreateAssetMenu(menuName = "RPG Setup/Item Data/Item Effect/Heal effect", fileName = "Item effect data - Heal")]
 public class ItemEffect_Heal : ItemEffect_DataSO
 {
     [SerializeField] private float healPercent = .1f;

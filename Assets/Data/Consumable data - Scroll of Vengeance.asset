@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc3448401fef6842b65e93ad209729d, type: 3}
+  m_Name: Consumable data - Scroll of Vengeance
+  m_EditorClassIdentifier: Assembly-CSharp::ConsumableItemDataSO
+  itemName: "\u0421\u0432\u0438\u0442\u043E\u0432 \u0432\u043E\u0437\u043C\u0435\u0437\u0434\u0438\u044F"
+  itemIcon: {fileID: 440529707, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  itemType: 4
+  maxStackSize: 5
+  itemEffect: {fileID: 11400000, guid: 1e388a2469d0b3c49a5554a74b20331b, type: 2}

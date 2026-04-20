@@ -26,7 +26,11 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     if (itemInSlot == null || itemInSlot.itemData.itemType == ItemType.Material) return;
 
     if (itemInSlot.itemData.itemType == ItemType.Consumable)
+    {
+      if (!itemInSlot.itemEffect.CanBeUsed()) return;
+
       inventory.TryUseItem(itemInSlot);
+    }
     else
       inventory.TryEquipItem(itemInSlot);
 
