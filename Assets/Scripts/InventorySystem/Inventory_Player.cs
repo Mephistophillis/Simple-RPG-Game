@@ -31,8 +31,8 @@ public class Inventory_Player : Inventory_Base
     var slotToReplace = matchingSlots[0];
     var itemToUnequip = slotToReplace.equipedItem;
 
+    UnequipItem(itemToUnequip, slotToReplace != null);
     EquipItem(inventoryItem, slotToReplace);
-    UnequipItem(itemToUnequip);
   }
 
   public void EquipItem(Inventory_Item itemToEquip, Inventory_EquipmentSlot slot)
@@ -46,9 +46,9 @@ public class Inventory_Player : Inventory_Base
     RemoveItem(itemToEquip);
   }
 
-  public void UnequipItem(Inventory_Item itemToUnequip)
+  public void UnequipItem(Inventory_Item itemToUnequip, bool replacingItem = false)
   {
-    if (!CanAddItem())
+    if (!CanAddItem() && !replacingItem)
     {
       Debug.Log("Inventory is full!");
       return;
