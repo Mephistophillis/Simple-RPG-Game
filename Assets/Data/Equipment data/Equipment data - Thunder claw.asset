@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99d8ebd90b9576246be86afc646e8f64, type: 3}
-  m_Name: Equipment data - Winter's Touch
+  m_Name: Equipment data - Thunder claw
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
-  itemName: "\u041A\u0430\u0441\u0430\u043D\u0438\u0435 \u0437\u0438\u043C\u044B"
-  itemIcon: {fileID: 456296670, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
-  itemType: 2
+  itemName: "\u0413\u0440\u043E\u0437\u043E\u0432\u043E\u0439 \u043A\u043B\u044B\u043A"
+  itemIcon: {fileID: 1697173611, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  itemType: 1
   maxStackSize: 1
-  itemEffect: {fileID: 0}
+  itemEffect: {fileID: 11400000, guid: 431888f3f10ef0540923a105b1434f98, type: 2}
   modifiers:
-  - statType: 0
-    value: 250
-  - statType: 14
-    value: 20
-  - statType: 2
-    value: 14
-  - statType: 16
-    value: 35
+  - statType: 6
+    value: 0.35
+  - statType: 13
+    value: 10
+  - statType: 7
+    value: 5
+  - statType: 1
+    value: 3

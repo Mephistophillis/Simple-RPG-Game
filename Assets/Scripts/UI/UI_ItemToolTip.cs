@@ -40,6 +40,13 @@ public class UI_ItemToolTip : UI_ToolTip
       sb.AppendLine("+ " + modValue + " " + modType);
     }
 
+    if (item.itemData.itemEffect != null)
+    {
+      sb.AppendLine("");
+      sb.AppendLine("Эффект: ");
+      sb.AppendLine(item.itemData.itemEffect.effectDescription);
+    }
+
     return sb.ToString();
   }
 
