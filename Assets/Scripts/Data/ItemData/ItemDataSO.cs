@@ -10,4 +10,7 @@ public class ItemDataSO : ScriptableObject
 
     [Header("Item effect")]
     public ItemEffect_DataSO itemEffect;
+
+    [Header("Craft Details")]
+    public Inventory_Item[] craftRecipe;
 }
