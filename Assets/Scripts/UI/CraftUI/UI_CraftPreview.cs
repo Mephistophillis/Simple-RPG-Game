@@ -14,7 +14,6 @@ public class UI_CraftPreview : MonoBehaviour
   [SerializeField] private TextMeshProUGUI itemInfo;
   [SerializeField] private TextMeshProUGUI buttonText;
 
-
   public void SetupCraftPreview(Inventory_Storage storage)
   {
     this.storage = storage;
