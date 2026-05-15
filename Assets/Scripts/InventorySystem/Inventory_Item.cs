@@ -64,13 +64,26 @@ public class Inventory_Item
 
   public string GetItemInfo()
   {
+    StringBuilder sb = new StringBuilder();
+
     if (itemData.itemType == ItemType.Material)
-      return "Используется для создания предметов";
+    {
+      sb.AppendLine("");
+      sb.AppendLine("Используется для крафта");
+      sb.AppendLine("");
+      sb.AppendLine("");
+      return sb.ToString();
+    }
 
     if (itemData.itemType == ItemType.Consumable)
-      return itemData.itemEffect.effectDescription;
+    {
 
-    StringBuilder sb = new StringBuilder();
+      sb.AppendLine("");
+      sb.AppendLine(itemData.itemEffect.effectDescription);
+      sb.AppendLine("");
+      sb.AppendLine("");
+      return sb.ToString();
+    }
 
     sb.AppendLine("");
 
@@ -91,6 +104,9 @@ public class Inventory_Item
       sb.AppendLine("Эффект: ");
       sb.AppendLine(itemEffect.effectDescription);
     }
+
+    sb.AppendLine("");
+    sb.AppendLine("");
 
     return sb.ToString();
   }
