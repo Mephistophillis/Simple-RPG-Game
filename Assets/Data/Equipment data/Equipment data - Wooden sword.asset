@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d8ebd90b9576246be86afc646e8f64, type: 3}
   m_Name: Equipment data - Wooden sword
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
-  itemName: "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u043C\u0435\u0447"
-  itemIcon: {fileID: 354645950, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
-  itemType: 1
-  maxStackSize: 1
-  itemEffect: {fileID: 0}
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 647
+  dropChance: 35.4
+  maxDropChance: 65
   craftRecipe:
   - itemData: {fileID: 11400000, guid: 092c1fdc683159f479ae0a6d874f9b97, type: 2}
     stackSize: 3
@@ -24,6 +25,11 @@ MonoBehaviour:
   - itemData: {fileID: 11400000, guid: e822224aae74fea49837ebfe29fee30e, type: 2}
     stackSize: 2
     itemEffect: {fileID: 0}
+  itemName: "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u043C\u0435\u0447"
+  itemIcon: {fileID: 354645950, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  itemType: 1
+  maxStackSize: 1
+  itemEffect: {fileID: 0}
   modifiers:
   - statType: 7
     value: 4

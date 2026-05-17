@@ -15,6 +15,9 @@ MonoBehaviour:
   itemPrice: 100
   minStackSizeAtShop: 1
   maxStackSizeAtShop: 5
+  itemRarity: 630
+  dropChance: 37.1
+  maxDropChance: 65
   craftRecipe: []
   itemName: "\u041C\u0430\u043B\u043E\u0435 \u0437\u0435\u043B\u044C\u0435 \u0438\u0441\u0446\u0435\u043B\u0435\u043D\u0438\u044F"
   itemIcon: {fileID: -161805690, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}

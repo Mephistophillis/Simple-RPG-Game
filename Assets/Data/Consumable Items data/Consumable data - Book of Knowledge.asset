@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc3448401fef6842b65e93ad209729d, type: 3}
   m_Name: Consumable data - Book of Knowledge
   m_EditorClassIdentifier: Assembly-CSharp::ConsumableItemDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 890
+  dropChance: 11.1
+  maxDropChance: 65
+  craftRecipe: []
   itemName: "\u041A\u043D\u0438\u0433\u0430 \u0437\u043D\u0430\u043D\u0438\u0439"
   itemIcon: {fileID: -1933749870, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
   itemType: 4

@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d8ebd90b9576246be86afc646e8f64, type: 3}
   m_Name: Equipment data - Thunder claw
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 791
+  dropChance: 21
+  maxDropChance: 65
+  craftRecipe: []
   itemName: "\u0413\u0440\u043E\u0437\u043E\u0432\u043E\u0439 \u043A\u043B\u044B\u043A"
   itemIcon: {fileID: 1697173611, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
   itemType: 1

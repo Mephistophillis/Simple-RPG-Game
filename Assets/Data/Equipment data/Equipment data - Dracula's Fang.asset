@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d8ebd90b9576246be86afc646e8f64, type: 3}
   m_Name: Equipment data - Dracula's Fang
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
-  itemName: "\u041A\u043B\u044B\u043A \u0414\u0440\u0430\u043A\u0443\u043B\u044B"
-  itemIcon: {fileID: 355036182, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
-  itemType: 1
-  maxStackSize: 1
-  itemEffect: {fileID: 11400000, guid: 2b8817a902d700e498980a6bfaa99e42, type: 2}
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 950
+  dropChance: 5.1
+  maxDropChance: 65
   craftRecipe:
   - itemData: {fileID: 11400000, guid: 512c22497d6ccae4290e90f08f2b4abc, type: 2}
     stackSize: 1
@@ -24,6 +25,11 @@ MonoBehaviour:
   - itemData: {fileID: 11400000, guid: 48e42a880ab75b64aa6c97ab5774e003, type: 2}
     stackSize: 1
     itemEffect: {fileID: 0}
+  itemName: "\u041A\u043B\u044B\u043A \u0414\u0440\u0430\u043A\u0443\u043B\u044B"
+  itemIcon: {fileID: 355036182, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
+  itemType: 1
+  maxStackSize: 1
+  itemEffect: {fileID: 11400000, guid: 2b8817a902d700e498980a6bfaa99e42, type: 2}
   modifiers:
   - statType: 7
     value: 35

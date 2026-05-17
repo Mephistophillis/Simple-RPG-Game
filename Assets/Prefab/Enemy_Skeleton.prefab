@@ -160,6 +160,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -349,6 +350,7 @@ GameObject:
   - component: {fileID: 7541238783423563970}
   - component: {fileID: 8424942228156759497}
   - component: {fileID: 7812773754214339394}
+  - component: {fileID: 3396008132854953909}
   m_Layer: 8
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -425,16 +427,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4ef270a50884944a6080ff5ce6dc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
+  basicAttackScale:
+    physical: 1
+    elemental: 1
+    chillDuration: 3
+    chillSlowMultipier: 0.2
+    burnDuration: 0
+    burnDamageScale: 1
+    shockDuration: 3
+    shockDamageScale: 1
+    shockCharge: 0.4
   targetCheck: {fileID: 3361549347916154119}
   targetCheckRadius: 1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  defaultDuration: 4
-  chillSlowMultiplier: 0.4
-  electrifyChangeBuildUp: 0.4
-  fireScale: 0.8
-  lightningScale: 2.5
 --- !u!114 &1863429316195365995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,7 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   currentHealth: 0
-  isDead: 0
   regenInterval: 1
   canRegenerateHalth: 1
   knockbackDuration: 0.2
@@ -564,7 +570,7 @@ MonoBehaviour:
   critHitVfx: {fileID: 4887153069367808809, guid: 7aef4578d46e99440b9ccfcc416c0d5b, type: 3}
   chillVfx: {r: 0.29411766, g: 0.6745098, b: 0.9529412, a: 1}
   burnVfx: {r: 0.97735846, g: 0.34832835, b: 0.17518678, a: 1}
-  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  shockVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 0}
 --- !u!50 &8424942228156759497
 Rigidbody2D:
@@ -630,6 +636,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.25078133}
   m_Size: {x: 0.6, y: 1.5009576}
   m_Direction: 0
+--- !u!114 &3396008132854953909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2816042750483933272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3fa017be281aac438c87f70a4a8b8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_DropManager
+  itemDropPrefab: {fileID: 8383959797334588821, guid: 447b553a2efb6584aa64e46ddf694486, type: 3}
+  dropData: {fileID: 11400000, guid: 92eaf79b9f6827a4385f3c9817d21e9c, type: 2}
+  maxRarityAmount: 1200
+  maxItemsToDrop: 3
 --- !u!1 &2829007054107496458
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +753,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

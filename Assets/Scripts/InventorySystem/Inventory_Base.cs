@@ -74,6 +74,14 @@ public class Inventory_Base : MonoBehaviour
     OnInventoryChange?.Invoke();
   }
 
+  public void RemoveFullStack(Inventory_Item itemToRemove)
+  {
+    for (int i = 0; i < itemToRemove.stackSize; i++)
+    {
+      RemoveOneItem(itemToRemove);
+    }
+  }
+
   public Inventory_Item FindItem(ItemDataSO itemData)
   {
     return itemList.Find(item => item.itemData == itemData);

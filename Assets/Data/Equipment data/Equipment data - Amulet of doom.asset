@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d8ebd90b9576246be86afc646e8f64, type: 3}
   m_Name: Equipment data - Amulet of doom
   m_EditorClassIdentifier: Assembly-CSharp::EquipmentDataSO
+  itemPrice: 100
+  minStackSizeAtShop: 1
+  maxStackSizeAtShop: 1
+  itemRarity: 728
+  dropChance: 27.3
+  maxDropChance: 65
+  craftRecipe: []
   itemName: "\u0410\u043C\u0443\u043B\u0435\u0442 \u0440\u043E\u043A\u0430"
   itemIcon: {fileID: -452058754, guid: df789f9866ce53e4299f31dd387b2bfd, type: 3}
   itemType: 3
   maxStackSize: 1
+  itemEffect: {fileID: 0}
   modifiers:
   - statType: 2
     value: 10
