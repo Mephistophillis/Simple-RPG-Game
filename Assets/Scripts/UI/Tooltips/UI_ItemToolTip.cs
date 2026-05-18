@@ -26,8 +26,19 @@ public class UI_ItemToolTip : UI_ToolTip
 
     itemPrice.text = itemToShow.stackSize > 1 ? fullStackPrice : oneItemPrice;
 
-    itemName.text = itemToShow.itemData.itemName;
     itemType.text = itemToShow.itemData.itemType.ToString();
     itemInfo.text = itemToShow.GetItemInfo();
+
+    string color = GetColorByRarity(itemToShow.itemData.itemRarity);
+    itemName.text = GetColoredText(color, itemToShow.itemData.itemName);
+  }
+
+  private string GetColorByRarity(int rarity)
+  {
+    if (rarity <= 100) return "white";  // Common
+    if (rarity <= 300) return "green";  // Uncommon
+    if (rarity <= 600) return "blue";   // Rare
+    if (rarity <= 850) return "purple"; // Epic
+    return "orange";                    // Legendary
   }
 }
