@@ -2,53 +2,64 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
-    public Player_SkillManager skillManager { get; private set; }
-    public Player player { get; private set; }
-    public DamageScaleData damageScaleData { get; private set; }
+  public Player_SkillManager skillManager { get; private set; }
+  public Player player { get; private set; }
+  public DamageScaleData damageScaleData { get; private set; }
 
-    [Header("General details")]
-    [SerializeField] protected SkillType skillType;
-    [SerializeField] protected SkillUpgradeType upgradeType;
-    [SerializeField] protected float cooldown;
-    private float lastTimeUsed;
+  [Header("General details")]
+  [SerializeField] protected SkillType skillType;
+  [SerializeField] protected SkillUpgradeType upgradeType;
+  [SerializeField] protected float cooldown;
+  private float lastTimeUsed;
 
-    protected virtual void Awake()
-    {
-        skillManager = GetComponentInParent<Player_SkillManager>();
-        player = GetComponentInParent<Player>();
-        lastTimeUsed -= cooldown;
+  protected virtual void Awake()
+  {
+    skillManager = GetComponentInParent<Player_SkillManager>();
+    player = GetComponentInParent<Player>();
+    lastTimeUsed -= cooldown;
 
-        damageScaleData = new DamageScaleData();
-    }
+    damageScaleData = new DamageScaleData();
+  }
 
-    public virtual void TryUseSkill()
-    {
+  public virtual void TryUseSkill()
+  {
 
-    }
+  }
 
-    public void SetSkillUpgrade(UpgradeData upgrade)
-    {
-        upgradeType = upgrade.upgradeType;
-        cooldown = upgrade.cooldown;
-        damageScaleData = upgrade.damageScaleData;
-        ResetCooldown();
-    }
+  public void SetSkillUpgrade(Skill_DataSO skillData)
+  {
+    UpgradeData upgrade = skillData.upgradeData;
+    upgradeType = upgrade.upgradeType;
+    cooldown = upgrade.cooldown;
+    damageScaleData = upgrade.damageScaleData;
 
-    public virtual bool CanUseSkill()
-    {
-        if (upgradeType == SkillUpgradeType.None)
-            return false;
+    player.ui.inGameUI.GetSkillSlot(skillType).SetupSkillSlot(skillData);
+    ResetCooldown();
+  }
 
-        if (OnCooldown())
-            return false;
+  public virtual bool CanUseSkill()
+  {
+    if (upgradeType == SkillUpgradeType.None)
+      return false;
 
-        return true;
-    }
+    if (OnCooldown())
+      return false;
 
-    protected bool Unlocked(SkillUpgradeType upgrade) => upgradeType == upgrade;
+    return true;
+  }
 
-    protected bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
-    public void SetSkillOnCooldown() => lastTimeUsed = Time.time;
-    public void ReduceCooldownBy(float cooldownReduction) => lastTimeUsed += cooldownReduction;
-    public void ResetCooldown() => lastTimeUsed = Time.time - cooldown;
+  protected bool Unlocked(SkillUpgradeType upgrade) => upgradeType == upgrade;
+
+  protected bool OnCooldown() => Time.time < lastTimeUsed + cooldown;
+  public void SetSkillOnCooldown()
+  {
+    player.ui.inGameUI.GetSkillSlot(skillType).StartCooldown(cooldown);
+    lastTimeUsed = Time.time;
+  }
+  public void ReduceCooldownBy(float cooldownReduction) => lastTimeUsed += cooldownReduction;
+  public void ResetCooldown()
+  {
+    player.ui.inGameUI.GetSkillSlot(skillType).ResetCooldown();
+    lastTimeUsed = Time.time - cooldown;
+  }
 }

@@ -2,78 +2,79 @@ using UnityEngine;
 
 public class Skill_TimeEcho : Skill_Base
 {
-    [SerializeField] private GameObject timeEchoPrefab;
-    [SerializeField] private float timeEchoDuration;
+  [SerializeField] private GameObject timeEchoPrefab;
+  [SerializeField] private float timeEchoDuration;
 
-    [Header("Attack Upgrades")]
-    [SerializeField] private int maxAttacks = 3;
-    [SerializeField] private float duplicateChance = .3f;
+  [Header("Attack Upgrades")]
+  [SerializeField] private int maxAttacks = 3;
+  [SerializeField] private float duplicateChance = .3f;
 
-    [Header("Heal wisp Upgrades")]
-    [SerializeField] private float damagePercentHealed = .3f;
-    [SerializeField] private float cooldownReducedInSeconds;
+  [Header("Heal wisp Upgrades")]
+  [SerializeField] private float damagePercentHealed = .3f;
+  [SerializeField] private float cooldownReducedInSeconds;
 
-    public float GetPercentOfDamageHealed()
-    {
-        if(!ShouldBeWisp())
-            return 0;
+  public float GetPercentOfDamageHealed()
+  {
+    if (!ShouldBeWisp())
+      return 0;
 
-        return damagePercentHealed;
-    }
+    return damagePercentHealed;
+  }
 
-    public float GetCooldownReduceInSeconds()
-    {
-        if(upgradeType != SkillUpgradeType.TimeEcho_CooldownWisp)
-            return 0;
+  public float GetCooldownReduceInSeconds()
+  {
+    if (upgradeType != SkillUpgradeType.TimeEcho_CooldownWisp)
+      return 0;
 
-        return cooldownReducedInSeconds;
-    }
+    return cooldownReducedInSeconds;
+  }
 
-    public bool CanRemoveNegativeEffects()
-    {
-        return upgradeType == SkillUpgradeType.TimeEcho_CleanseWisp;
-    }
-    
-    public bool ShouldBeWisp()
-    {
-      return upgradeType == SkillUpgradeType.TimeEcho_HealWisp
-        || upgradeType == SkillUpgradeType.TimeEcho_CleanseWisp
-        || upgradeType == SkillUpgradeType.TimeEcho_CooldownWisp;
-    }
+  public bool CanRemoveNegativeEffects()
+  {
+    return upgradeType == SkillUpgradeType.TimeEcho_CleanseWisp;
+  }
 
-    public float GetDuplicateChance()
-    {
-        if(upgradeType != SkillUpgradeType.TimeEcho_ChanceToDuplicate)
-            return 0;
+  public bool ShouldBeWisp()
+  {
+    return upgradeType == SkillUpgradeType.TimeEcho_HealWisp
+      || upgradeType == SkillUpgradeType.TimeEcho_CleanseWisp
+      || upgradeType == SkillUpgradeType.TimeEcho_CooldownWisp;
+  }
 
-        return duplicateChance;
-    }
+  public float GetDuplicateChance()
+  {
+    if (upgradeType != SkillUpgradeType.TimeEcho_ChanceToDuplicate)
+      return 0;
 
-    public int GetMaxAttacks()
-    {
-        if (upgradeType == SkillUpgradeType.TimeEcho_SingleAttack || upgradeType == SkillUpgradeType.TimeEcho_ChanceToDuplicate)
-            return 1;
+    return duplicateChance;
+  }
 
-        if (upgradeType == SkillUpgradeType.TimeEcho_MultiAttack)
-            return maxAttacks;
+  public int GetMaxAttacks()
+  {
+    if (upgradeType == SkillUpgradeType.TimeEcho_SingleAttack || upgradeType == SkillUpgradeType.TimeEcho_ChanceToDuplicate)
+      return 1;
 
-        return 0;
-    }
+    if (upgradeType == SkillUpgradeType.TimeEcho_MultiAttack)
+      return maxAttacks;
 
-    public float GetEchoDuration() => timeEchoDuration;
-    public override void TryUseSkill()
-    {
-        if (!CanUseSkill())
-            return;
+    return 0;
+  }
 
-        CreateTimeEcho();
-    }
+  public float GetEchoDuration() => timeEchoDuration;
+  public override void TryUseSkill()
+  {
+    if (!CanUseSkill())
+      return;
 
-    public void CreateTimeEcho(Vector3? targetPosition = null)
-    {
-        Vector3 position = targetPosition ?? transform.position;
+    CreateTimeEcho();
+    SetSkillOnCooldown();
+  }
 
-        GameObject timeEcho = Instantiate(timeEchoPrefab, position, Quaternion.identity);
-        timeEcho.GetComponent<SkillObject_TimeEcho>().SetupEcho(this);
-    }
+  public void CreateTimeEcho(Vector3? targetPosition = null)
+  {
+    Vector3 position = targetPosition ?? transform.position;
+
+    GameObject timeEcho = Instantiate(timeEchoPrefab, position, Quaternion.identity);
+    timeEcho.GetComponent<SkillObject_TimeEcho>().SetupEcho(this);
+  }
 }
