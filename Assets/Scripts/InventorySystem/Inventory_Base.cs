@@ -10,7 +10,7 @@ public class Inventory_Base : MonoBehaviour
 
   protected virtual void Awake()
   {
-    
+
   }
 
   public void TryUseItem(Inventory_Item itemToUse)
@@ -32,7 +32,7 @@ public class Inventory_Base : MonoBehaviour
   public bool CanAddItem(Inventory_Item itemToAdd)
   {
     bool hasStackable = FindStackable(itemToAdd) != null;
-    
+
     return hasStackable || itemList.Count < maxInventorySize;
   }
 
@@ -53,7 +53,7 @@ public class Inventory_Base : MonoBehaviour
   public void AddItem(Inventory_Item item)
   {
     Inventory_Item itemInInventory = FindStackable(item);
-    
+
     if (itemInInventory != null)
       itemInInventory.AddStack();
     else
@@ -85,6 +85,11 @@ public class Inventory_Base : MonoBehaviour
   public Inventory_Item FindItem(Inventory_Item itemToFind)
   {
     return itemList.Find(item => item == itemToFind);
+  }
+
+  public Inventory_Item FindSameItem(Inventory_Item itemToFind)
+  {
+    return itemList.Find(item => item.itemData == itemToFind.itemData);
   }
 
   public void TriggerUnpdateUI() => OnInventoryChange?.Invoke();
