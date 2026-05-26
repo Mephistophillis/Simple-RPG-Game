@@ -15,6 +15,7 @@ public class Player : Entity
   public Entity_StatusHandler statusHandler { get; private set; }
   public Entity_Combat combat { get; private set; }
   public Inventory_Player inventory { get; private set; }
+  public Player_Stats stats { get; private set; }
 
   #region State Variables 
 
@@ -72,6 +73,7 @@ public class Player : Entity
     statusHandler = GetComponent<Entity_StatusHandler>();
     combat = GetComponent<Entity_Combat>();
     inventory = GetComponent<Inventory_Player>();
+    stats = GetComponent<Player_Stats>();
 
     idleState = new Player_IdleState(this, stateMachine, "idle");
     moveState = new Player_MoveState(this, stateMachine, "move");

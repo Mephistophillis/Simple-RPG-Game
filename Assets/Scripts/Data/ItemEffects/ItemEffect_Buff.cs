@@ -8,15 +8,14 @@ public class ItemEffect_Buff : ItemEffect_DataSO
   [SerializeField] private float duration;
   [SerializeField] private string source = Guid.NewGuid().ToString();
 
-  private Player_Stats playerStats;
-
-  override public bool CanBeUsed()
+  override public bool CanBeUsed(Player player)
   {
-    if (playerStats == null)
-      playerStats = FindAnyObjectByType<Player_Stats>();
+    if (player.stats.CanApplyBuffOf(source))
+    {
+      this.player = player;
 
-    if (playerStats.CanApplyBuffOf(source))
       return true;
+    }
     else
     {
       Debug.Log("Same buff is already active! " + source);
@@ -26,6 +25,7 @@ public class ItemEffect_Buff : ItemEffect_DataSO
 
   override public void ExecuteEffect()
   {
-    playerStats.ApplyBuff(buffsToApply, duration, source);
+    player.stats.ApplyBuff(buffsToApply, duration, source);
+    player = null;
   }
 }

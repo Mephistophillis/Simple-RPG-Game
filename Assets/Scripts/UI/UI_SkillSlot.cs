@@ -74,12 +74,12 @@ public class UI_SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
   {
     if (skillData == null) return;
 
-    ui.skillToolTip.ShowToolTip(false, null);
+    ui.skillToolTip.ShowToolTip(true, rect, skillData, null);
   }
 
   public void OnPointerExit(PointerEventData eventData)
   {
-    ui.skillToolTip.ShowToolTip(true, rect, skillData, null);
+    ui.skillToolTip.ShowToolTip(false, null);
   }
 }
 

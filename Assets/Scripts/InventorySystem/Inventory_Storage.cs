@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory_Storage : Inventory_Base
 {
   public Inventory_Player playerInventory { get; private set; }
   public List<Inventory_Item> materialStash;
-  
+
   public void CraftItem(Inventory_Item itemToCraft)
   {
     ConsumeMaterials(itemToCraft);
@@ -35,26 +36,26 @@ public class Inventory_Storage : Inventory_Base
   }
   private int ConsumeMaterialsAmount(List<Inventory_Item> itemList, Inventory_Item neededItem)
   {
-     int amountNeeded = neededItem.stackSize;
-     int consumedAmount = 0;
+    int amountNeeded = neededItem.stackSize;
+    int consumedAmount = 0;
 
-     foreach (var item in itemList)
-     {
-        if (item.itemData != neededItem.itemData)
-          continue;
+    foreach (var item in itemList)
+    {
+      if (item.itemData != neededItem.itemData)
+        continue;
 
-        int removeAmount = Mathf.Min(item.stackSize, amountNeeded - consumedAmount);
-        item.stackSize -= removeAmount;
-        consumedAmount += removeAmount;
+      int removeAmount = Mathf.Min(item.stackSize, amountNeeded - consumedAmount);
+      item.stackSize -= removeAmount;
+      consumedAmount += removeAmount;
 
-        if (item.stackSize <= 0)
-          itemList.Remove(item);
+      if (item.stackSize <= 0)
+        itemList.Remove(item);
 
-        if (consumedAmount >= amountNeeded)
-          break;
-     }
+      if (consumedAmount >= amountNeeded)
+        break;
+    }
 
-     return consumedAmount;
+    return consumedAmount;
   }
 
   private bool HasEnoughtMaterials(Inventory_Item itemToCraft)
@@ -96,17 +97,22 @@ public class Inventory_Storage : Inventory_Base
   public void AddMaterialToStash(Inventory_Item itemToAdd)
   {
     var stackableItem = StackableInStask(itemToAdd);
-    
-    if (stackableItem != null) stackableItem.AddStack();
-    else materialStash.Add(itemToAdd);
 
+    if (stackableItem != null) stackableItem.AddStack();
+    else
+    {
+      var newItemToAdd = new Inventory_Item(itemToAdd.itemData);
+      materialStash.Add(newItemToAdd);
+    }
+
+    materialStash = materialStash.OrderBy(item => item.itemData.itemName).ToList();
     TriggerUnpdateUI();
   }
 
   public Inventory_Item StackableInStask(Inventory_Item itemToAdd)
   {
     List<Inventory_Item> stackableItems = materialStash.FindAll(item => item.itemData == itemToAdd.itemData);
-    
+
     foreach (var stackable in stackableItems)
     {
       if (stackable.CanAddStack()) return stackable;
@@ -120,13 +126,13 @@ public class Inventory_Storage : Inventory_Base
   public void FromPlayerToStorage(Inventory_Item item, bool transferFullStack)
   {
     int transferAmount = transferFullStack ? item.stackSize : 1;
-    
+
     for (int i = 0; i < transferAmount; i++)
     {
       if (CanAddItem(item))
       {
         var itemToAdd = new Inventory_Item(item.itemData);
-      
+
         playerInventory.RemoveOneItem(item);
         AddItem(itemToAdd);
       }
@@ -138,7 +144,7 @@ public class Inventory_Storage : Inventory_Base
   public void FromStorageToPlayer(Inventory_Item item, bool transferFullStack)
   {
     int transferAmount = transferFullStack ? item.stackSize : 1;
-    
+
     for (int i = 0; i < transferAmount; i++)
     {
       if (playerInventory.CanAddItem(item))

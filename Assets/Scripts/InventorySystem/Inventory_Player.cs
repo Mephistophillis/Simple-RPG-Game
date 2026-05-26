@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class Inventory_Player : Inventory_Base
 {
-  public event Action<int, Inventory_Item> OnQuickSlotUsed;
+  public event Action<int> OnQuickSlotUsed;
   public int gold = 10000;
-  private Player player;
   public List<Inventory_EquipmentSlot> equipList;
   public Inventory_Storage storage { get; private set; }
 
   [Header("Quick Item Slots")]
-  [SerializeField] private Inventory_Item[] quickItems = new Inventory_Item[2];
+  public Inventory_Item[] quickItems = new Inventory_Item[2];
 
   protected override void Awake()
   {
     base.Awake();
-    player = GetComponent<Player>();
     storage = FindFirstObjectByType<Inventory_Storage>();
   }
 
   public void SetQuickItemInSlot(int slotNumber, Inventory_Item itemToSlot)
   {
     quickItems[slotNumber - 1] = itemToSlot;
-    OnQuickSlotUsed?.Invoke(slotNumber - 1, itemToSlot);
+    TriggerUnpdateUI();
   }
 
   public void TryUseQuickItemInSlot(int passedSlotNumber)
@@ -38,8 +36,9 @@ public class Inventory_Player : Inventory_Base
     if (FindItem(itemToUse) == null)
     {
       quickItems[slotNumber] = FindSameItem(itemToUse);
+      TriggerUnpdateUI();
 
-      OnQuickSlotUsed?.Invoke(slotNumber, quickItems[slotNumber]);
+      OnQuickSlotUsed?.Invoke(slotNumber);
     }
   }
 

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,7 +15,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
   [SerializeField] protected Image itemIcon;
   [SerializeField] protected TextMeshProUGUI itemStackSize;
 
-  protected void Awake()
+  protected virtual void Awake()
   {
     ui = GetComponentInParent<UI>();
     rect = GetComponent<RectTransform>();
@@ -35,8 +36,6 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     {
       if (itemInSlot.itemData.itemType == ItemType.Consumable)
       {
-        if (!itemInSlot.itemEffect.CanBeUsed()) return;
-
         inventory.TryUseItem(itemInSlot);
       }
       else
@@ -71,7 +70,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     ui.itemToolTip.ShowToolTip(true, rect, itemInSlot);
   }
 
-  public void OnPointerExit(PointerEventData eventData)
+  public virtual void OnPointerExit(PointerEventData eventData)
   {
     ui.itemToolTip.ShowToolTip(false, null);
   }

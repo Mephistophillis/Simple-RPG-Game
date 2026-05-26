@@ -15,6 +15,7 @@ public class UI_Merchant : MonoBehaviour
     this.inventory = player;
 
     this.inventory.OnInventoryChange += UpdateSlotUI;
+    this.merchant.OnInventoryChange += UpdateSlotUI;
 
     UpdateSlotUI();
 
