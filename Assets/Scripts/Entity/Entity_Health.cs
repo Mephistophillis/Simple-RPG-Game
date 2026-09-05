@@ -13,6 +13,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity_Stats entityStats;
     private Entity_DropManager dropManager;
 
+    private bool miniHealthBarActive;
+
     [SerializeField] public float currentHealth;
     public bool isDead { get; private set; }
     protected bool canTakeDamage = true;
@@ -138,7 +140,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     private void UpdateHealthBar()
     {
-        if (!healthBar) return;
+        if (!healthBar && !healthBar.transform.parent.gameObject.activeSelf) return;
 
         healthBar.value = currentHealth / entityStats.GetMaxHealth();
     }
@@ -151,6 +153,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
         Vector2 knockback = CalculateKnockback(finalDamage, damageDealer);
         entity?.ReciveKnockback(knockback, duration);
     }
+
+    public void EnableHealthBar(bool enable) => healthBar?.transform.parent.gameObject.SetActive(enable);
 
     private Vector2 CalculateKnockback(float damage, Transform damageDealer)
     {
