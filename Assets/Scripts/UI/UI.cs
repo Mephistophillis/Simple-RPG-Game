@@ -147,6 +147,7 @@ public class UI : MonoBehaviour
   public void OpenStorageUI(bool openStorageUI)
   {
     storageUI.gameObject.SetActive(openStorageUI);
+    StopPlayerControls(openStorageUI);
 
     if (!openStorageUI)
     {
