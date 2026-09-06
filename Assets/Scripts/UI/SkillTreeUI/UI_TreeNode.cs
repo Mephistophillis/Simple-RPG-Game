@@ -81,6 +81,14 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
       .SetSkillUpgrade(skillData);
   }
 
+  public void UnlockWithSaveData()
+  {
+    isUnlocked = true;
+    UpdateIconColor(Color.white);
+    LockConflictNodes();
+    connectHandler.UnlockConnectionImage(true);
+  }
+
   private bool CanBeUlocked()
   {
     if (isLocked || isUnlocked) return false;
