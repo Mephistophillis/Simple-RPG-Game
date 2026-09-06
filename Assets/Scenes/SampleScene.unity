@@ -2205,8 +2205,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2079847091}
-  - {fileID: 611765931}
   - {fileID: 544922239}
+  - {fileID: 611765931}
   - {fileID: 1376153065}
   - {fileID: 1130655246}
   m_Father: {fileID: 857559375}
@@ -62769,7 +62769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaveManager
   fileName: simple-rpg.json
-  encryptData: 1
+  encryptData: 0
 --- !u!4 &1208291338
 Transform:
   m_ObjectHideFlags: 0
@@ -69583,7 +69583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Inventory_Player
   maxInventorySize: 10
   itemList: []
-  gold: 500
+  itemDataBase: {fileID: 11400000, guid: 3ff079b5ed010934e9350d232158baae, type: 2}
   equipList:
   - slotType: 1
     equipedItem:
@@ -69612,6 +69612,7 @@ MonoBehaviour:
   - itemData: {fileID: 0}
     stackSize: 0
     itemEffect: {fileID: 0}
+  gold: 500
 --- !u!114 &1343268604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115424,8 +115425,8 @@ RectTransform:
   - {fileID: 864134863}
   - {fileID: 1521934221}
   - {fileID: 1244440077}
-  - {fileID: 1657345422}
   - {fileID: 1277232864}
+  - {fileID: 1657345422}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -115599,12 +115600,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2130396893}
-  - {fileID: 1244071268}
-  - {fileID: 1408881090}
-  - {fileID: 1373458866}
-  - {fileID: 41585548}
   - {fileID: 938019163}
   - {fileID: 1224968749}
+  - {fileID: 1373458866}
+  - {fileID: 41585548}
+  - {fileID: 1244071268}
+  - {fileID: 1408881090}
   m_Father: {fileID: 857559375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
