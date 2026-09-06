@@ -5,7 +5,6 @@ using UnityEngine;
 public class Inventory_Player : Inventory_Base
 {
   public event Action<int> OnQuickSlotUsed;
-  [SerializeField] private ItemListDataSO itemDataBase;
 
   public Inventory_Storage storage { get; private set; }
   public List<Inventory_EquipmentSlot> equipList;
@@ -106,6 +105,7 @@ public class Inventory_Player : Inventory_Base
   {
     data.gold = gold;
     data.inventory.Clear();
+    data.equipedItems.Clear();
 
     foreach (var item in itemList)
     {
@@ -118,6 +118,12 @@ public class Inventory_Player : Inventory_Base
 
         data.inventory[saveId] += item.stackSize;
       }
+    }
+
+    foreach (var slot in equipList)
+    {
+      if (slot.HasItem())
+        data.equipedItems[slot.equipedItem.itemData.saveId] = slot.slotType;
     }
   }
 
@@ -144,6 +150,21 @@ public class Inventory_Player : Inventory_Base
         Inventory_Item itemToLoad = new Inventory_Item(itemData);
         AddItem(itemToLoad);
       }
+    }
+
+    foreach (var entry in data.equipedItems)
+    {
+      string saveId = entry.Key;
+      ItemType loadedSlotType = entry.Value;
+
+      ItemDataSO itemData = itemDataBase.GetItemData(saveId);
+      Inventory_Item itemToLoad = new Inventory_Item(itemData);
+
+      var slot = equipList.Find(slot => slot.slotType == loadedSlotType && !slot.HasItem());
+
+      slot.equipedItem = itemToLoad;
+      slot.equipedItem.AddModifiers(player.stats);
+      slot.equipedItem.AddItemEffect(player);
     }
 
     TriggerUnpdateUI();
