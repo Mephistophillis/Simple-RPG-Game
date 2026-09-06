@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_Inventory : MonoBehaviour
@@ -15,6 +16,13 @@ public class UI_Inventory : MonoBehaviour
   {
     inventory = FindFirstObjectByType<Inventory_Player>();
     inventory.OnInventoryChange += UpdateUI;
+
+    UpdateUI();
+  }
+
+  private void OnEnable()
+  {
+    if (inventory == null) return;
 
     UpdateUI();
   }
